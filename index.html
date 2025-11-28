@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acurrúcame Café | El sabor que te abraza</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,300&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: 'var(--primary-color)',
+                        lightBg: 'var(--light-background-color)',
+                        mediumBg: 'var(--medium-background-color)',
+                        darkBg: 'var(--dark-background-color)',
+                        warmCream: 'var(--accent3-color)',
+                        rose: 'var(--primary-color)',
+                        tan: 'var(--secondary-button-bg-color)',
+                        brown: 'var(--secondary-button-text-color)',
+                    },
+                    fontFamily: {
+                        heading: ['Poppins', 'sans-serif'],
+                        body: ['Nunito', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'xl': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+                        '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            /* PRIMARY COLORS */
+            --primary-color: #D76F6F;
+            --primary-button-text-color: #FFFFFF;
+            --primary-button-hover-bg-color: #B85A5A;
+
+            /* SECONDARY COLORS */
+            --secondary-button-bg-color: #F4D0A4;
+            --secondary-button-text-color: #6B482D;
+            --secondary-button-hover-bg-color: #E3BE8D;
+
+            /* ACCENT COLORS */
+            --accent-color: #3E8C7E;
+            --accent2-color: #DA8C74;
+            --accent3-color: #FFDAB1;
+            --accent4-color: #946A5A;
+
+            /* TEXT COLORS */
+            --dark-text-color: #2E2E2E;
+            --gray-text-color: #939393;
+            --light-text-color: #FDFDFD;
+
+            /* BACKGROUNDS */
+            --dark-background-color: #2D2D2D;
+            --light-background-color: #FDEAEA;
+            --medium-background-color: #FBD5D5;
+        }
+
+        /* Custom Animations */
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .animate-float-delayed {
+            animation: float 8s ease-in-out infinite 2s;
+        }
+
+        .slide-hover:hover .slide-icon {
+            transform: translateX(4px);
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body class="font-body text-[var(--dark-text-color)] antialiased">
+
+    <header
+        class="fixed top-0 w-full z-50 h-28 bg-[var(--light-background-color)]/90 backdrop-blur-md shadow-sm transition-all duration-300">
+        <div class="container mx-auto px-6 h-full flex justify-between items-center">
+            <a href="#" class="h-full py-2 flex items-center" data-logo>
+                <div class="h-20 w-auto flex items-center gap-2">
+                    <i class="fa-solid fa-mug-hot text-4xl text-[var(--primary-color)]"></i>
+                    <span class="font-heading font-bold text-2xl text-[var(--dark-text-color)]">Acurrúcame</span>
+                </div>
+            </a>
+
+            <nav class="hidden lg:flex items-center gap-8">
+                <a href="#menu"
+                    class="text-[var(--dark-text-color)] hover:text-[var(--primary-color)] font-semibold transition-colors duration-300">Menu</a>
+                <a href="#about"
+                    class="text-[var(--dark-text-color)] hover:text-[var(--primary-color)] font-semibold transition-colors duration-300">About
+                    Us</a>
+                <a href="#reviews"
+                    class="text-[var(--dark-text-color)] hover:text-[var(--primary-color)] font-semibold transition-colors duration-300">Reviews</a>
+                <a href="#visit"
+                    class="text-[var(--dark-text-color)] hover:text-[var(--primary-color)] font-semibold transition-colors duration-300">Visit
+                    Us</a>
+
+                <a href="#menu"
+                    class="bg-[var(--primary-color)] text-white px-6 py-3 rounded-lg font-bold hover:bg-[var(--primary-button-hover-bg-color)] transition-all transform hover:scale-105 shadow-md">
+                    Explore Signature Drinks
+                </a>
+            </nav>
+
+            <button class="lg:hidden text-3xl text-[var(--dark-text-color)] focus:outline-none" id="mobile-menu-toggle"
+                data-landingsite-mobile-menu-toggle>
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <div class="hidden lg:hidden bg-[var(--light-background-color)] border-t border-[var(--medium-background-color)] shadow-lg"
+            id="mobile-menu" data-landingsite-mobile-menu>
+            <div class="flex flex-col p-6 gap-4">
+                <a href="#menu" class="text-xl font-heading font-semibold text-[var(--dark-text-color)]">Menu</a>
+                <a href="#about" class="text-xl font-heading font-semibold text-[var(--dark-text-color)]">About Us</a>
+                <a href="#reviews" class="text-xl font-heading font-semibold text-[var(--dark-text-color)]">Reviews</a>
+                <a href="#visit" class="text-xl font-heading font-semibold text-[var(--dark-text-color)]">Visit Us</a>
+                <a href="#menu"
+                    class="bg-[var(--primary-color)] text-white px-6 py-3 rounded-lg font-bold text-center mt-2">
+                    Explore Signature Drinks
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative min-h-screen flex items-center justify-center pt-28 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80"
+                alt="Latte Art" class="w-full h-full object-cover">
+            <div
+                class="absolute inset-0 bg-gradient-to-b from-gray-900/80 via-gray-900/75 to-[var(--primary-color)]/75">
+            </div>
+        </div>
+
+        <div class="absolute top-1/4 left-10 w-24 h-24 rounded-full bg-white/10 blur-xl animate-float z-10"></div>
+        <div
+            class="absolute bottom-1/4 right-10 w-32 h-32 rounded-full bg-[var(--primary-color)]/20 blur-xl animate-float-delayed z-10">
+        </div>
+
+        <div class="container mx-auto px-6 relative z-20 text-center flex flex-col items-center">
+
+            <h1 class="font-heading font-bold text-white text-5xl md:text-6xl lg:text-7xl mb-2 drop-shadow-lg">
+                Acurrúcame Café
+            </h1>
+            <h2
+                class="font-heading font-light italic text-[var(--accent3-color)] text-3xl md:text-4xl lg:text-5xl mb-8">
+                El sabor que te abraza
+            </h2>
+
+            <p class="text-white/90 text-xl md:text-2xl lg:text-3xl max-w-3xl leading-relaxed mb-10">
+                A family-run Los Angeles coffee gem serving warm moments, Mexican-inspired lattes, and irresistible
+                house favorites.
+            </p>
+
+            <div class="flex flex-col md:flex-row items-center gap-4 md:gap-8 mb-10 text-white">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-star text-[var(--accent3-color)]"></i>
+                    <span class="font-bold text-xl">4.9</span>
+                    <span class="text-[var(--accent3-color)]">(116 reviews)</span>
+                </div>
+                <div class="hidden md:block w-px h-6 bg-white/50"></div>
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-location-dot text-[var(--accent3-color)]"></i>
+                    <span>East Los Angeles</span>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-6 w-full sm:w-auto">
+                <a href="#menu"
+                    class="slide-hover group bg-[var(--primary-color)] text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 hover:bg-[var(--primary-button-hover-bg-color)] hover:scale-105 hover:shadow-xl flex items-center justify-center gap-3">
+                    View Our Menu
+                    <i class="slide-icon fa-solid fa-arrow-right transition-transform duration-300"></i>
+                </a>
+                <a href="#visit"
+                    class="slide-hover group bg-[var(--secondary-button-bg-color)] text-[var(--secondary-button-text-color)] px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 hover:bg-[var(--secondary-button-hover-bg-color)] hover:scale-105 hover:shadow-xl flex items-center justify-center gap-3">
+                    Visit Us Today
+                    <i class="slide-icon fa-solid fa-location-dot transition-transform duration-300"></i>
+                </a>
+            </div>
+
+            <div class="mt-8 flex items-center gap-2 text-white/80 text-sm">
+                <i class="fa-solid fa-circle-check text-[var(--accent3-color)]"></i>
+                <span>Open Daily Until 2 PM • Dine-In & Takeaway Available</span>
+            </div>
+        </div>
+
+        <div class="absolute bottom-0 w-full leading-none">
+            <svg class="w-full h-8 md:h-12 lg:h-16 text-[var(--light-background-color)]" viewBox="0 0 1440 320"
+                preserveAspectRatio="none">
+                <path fill="currentColor" fill-opacity="1"
+                    d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,261.3C960,256,1056,224,1152,197.3C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                </path>
+            </svg>
+        </div>
+    </section>
+
+    <section id="menu" class="py-20 lg:py-32 bg-[var(--light-background-color)] relative">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-[var(--accent3-color)]/30 blur-3xl rounded-full"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-[var(--primary-color)]/20 blur-3xl rounded-full"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-[var(--dark-text-color)] mb-6">
+                    Our Signature Drinks
+                </h2>
+                <p class="font-body text-lg md:text-xl text-[var(--gray-text-color)] max-w-3xl mx-auto">
+                    Each drink is crafted with love, inspired by Mexican flavors, and designed to make you feel embraced
+                    with every sip.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+
+                <div
+                    class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden hover:scale-[1.02]">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=800&q=80"
+                            alt="La Cocada"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-heading font-bold text-2xl text-[var(--dark-text-color)] mb-2">La Cocada</h3>
+                        <p class="text-[var(--gray-text-color)] leading-relaxed">Creamy, coconut-matcha magic. A
+                            tropical embrace in every sip that'll transport you to paradise.</p>
+                    </div>
+                </div>
+
+                <div
+                    class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden hover:scale-[1.02] relative">
+                    <div
+                        class="absolute top-4 right-4 z-20 bg-[var(--primary-color)] text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                        FAN FAVORITE</div>
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://plus.unsplash.com/premium_photo-1675435644687-562e8042b9db?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Q0FGRXxlbnwwfHwwfHx8MA%3D%3D"
+                            alt="Mazapán Latte"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-heading font-bold text-2xl text-[var(--dark-text-color)] mb-2">Mazapán Latte
+                        </h3>
+                        <p class="text-[var(--gray-text-color)] leading-relaxed">Sweet, nutty, velvety, and instantly
+                            addictive. The Mexican candy latte that has everyone talking.</p>
+                    </div>
+                </div>
+
+                <div
+                    class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden hover:scale-[1.02]">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80"
+                            alt="Acurrúcame Latte"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-heading font-bold text-2xl text-[var(--dark-text-color)] mb-2">Acurrúcame Latte
+                        </h3>
+                        <p class="text-[var(--gray-text-color)] leading-relaxed">Our signature namesake drink. Warm,
+                            comforting, and made to feel like a hug in a cup.</p>
+                    </div>
+                </div>
+
+                <div
+                    class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden hover:scale-[1.02]">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://plus.unsplash.com/premium_photo-1663840277963-17291c6a0086?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8U3RyYXdiZXJyeSUyME1hdGNoYXxlbnwwfHwwfHx8MA%3D%3D"
+                            alt="Strawberry Matcha"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-heading font-bold text-2xl text-[var(--dark-text-color)] mb-2">Strawberry Matcha
+                        </h3>
+                        <p class="text-[var(--gray-text-color)] leading-relaxed">Refreshingly vibrant and photogenic.
+                            The perfect balance of sweet berries and earthy matcha.</p>
+                    </div>
+                </div>
+
+                <div
+                    class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden hover:scale-[1.02]">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=800&q=80"
+                            alt="Iced Coffee"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-heading font-bold text-2xl text-[var(--dark-text-color)] mb-2">Iced Coffee</h3>
+                        <p class="text-[var(--gray-text-color)] leading-relaxed">Smooth, bold, and perfectly chilled.
+                            Classic perfection for those who love coffee pure and simple.</p>
+                    </div>
+                </div>
+
+                <div
+                    class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden hover:scale-[1.02]">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://plus.unsplash.com/premium_photo-1664375245759-48264af32e0a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8SWNlZCUyMExhdHRlJTIwKE9hdCl8ZW58MHx8MHx8fDA%3D"
+                            alt="Iced Latte with Oatmilk"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-heading font-bold text-2xl text-[var(--dark-text-color)] mb-2">Iced Latte (Oat)
+                        </h3>
+                        <p class="text-[var(--gray-text-color)] leading-relaxed">Silky smooth and dairy-free delight.
+                            Rich espresso perfectly balanced with creamy oat goodness.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="text-center">
+                <a href="#"
+                    class="slide-hover inline-flex items-center gap-3 bg-[var(--primary-color)] text-white text-xl font-bold px-10 py-5 rounded-lg shadow-xl hover:shadow-2xl hover:bg-[var(--primary-button-hover-bg-color)] hover:scale-105 transition-all duration-300">
+                    See Full Menu
+                    <i class="slide-icon fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 lg:py-32 bg-white relative overflow-hidden">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+                <div class="order-2 lg:order-1 relative">
+                    <div class="rounded-3xl overflow-hidden shadow-2xl h-[500px] lg:h-[600px] relative">
+                        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80"
+                            alt="Cozy Interior" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    </div>
+
+                    <div
+                        class="hidden md:flex absolute -bottom-6 -right-6 bg-[var(--primary-color)] text-white p-8 rounded-2xl shadow-2xl flex-col gap-2 max-w-xs z-10">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-heart text-2xl"></i>
+                            <span class="text-3xl font-bold font-heading">4.9</span>
+                        </div>
+                        <p class="font-bold">Loved by 116+ Locals</p>
+                        <p class="text-sm opacity-90">A hidden gem in East LA serving comfort in every cup</p>
+                    </div>
+                </div>
+
+                <div class="order-1 lg:order-2 flex flex-col items-start">
+                    <div
+                        class="inline-flex items-center gap-2 bg-[var(--light-background-color)] text-[var(--primary-color)] px-4 py-1.5 rounded-full text-sm font-bold mb-6">
+                        <i class="fa-solid fa-heart"></i>
+                        Our Story
+                    </div>
+
+                    <h2
+                        class="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-[var(--dark-text-color)] mb-8 leading-tight">
+                        Where Every Drink Feels Like a Hug
+                    </h2>
+
+                    <div class="space-y-6 text-[var(--gray-text-color)] text-lg leading-relaxed mb-10 font-body">
+                        <p>Acurrúcame Café is more than just a coffee shop—it's a <span
+                                class="font-bold text-[var(--primary-color)]">family-run sanctuary</span> in the heart
+                            of East Los Angeles where warmth, flavor, and community come together.</p>
+                        <p>Founded with love and inspired by Mexican culture, we've created a space where every visitor
+                            is treated like family. Our drinks are crafted with generous portions of flavor and heart,
+                            making each sip a moment to remember.</p>
+                        <p>From our <span class="font-bold text-[var(--primary-color)]">immaculate space</span> to our
+                            genuine smiles, we're a hidden gem loved by locals and discovered with joy by visitors. We
+                            believe coffee is more than a beverage—it's an embrace, a conversation, a moment of comfort.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-6 w-full mb-10">
+                        <div>
+                            <span class="block text-4xl font-heading font-bold text-[var(--primary-color)]">$1-10</span>
+                            <span class="text-sm text-[var(--gray-text-color)]">Affordable Prices</span>
+                        </div>
+                        <div>
+                            <span class="block text-4xl font-heading font-bold text-[var(--primary-color)]">100%</span>
+                            <span class="text-sm text-[var(--gray-text-color)]">Family-Run</span>
+                        </div>
+                        <div>
+                            <span class="block text-4xl font-heading font-bold text-[var(--primary-color)]">Daily</span>
+                            <span class="text-sm text-[var(--gray-text-color)]">Fresh & Local</span>
+                        </div>
+                    </div>
+
+                    <a href="#"
+                        class="slide-hover bg-[var(--secondary-button-bg-color)] text-[var(--secondary-button-text-color)] px-8 py-4 rounded-lg font-bold text-lg shadow-md transition-all duration-300 hover:scale-105 hover:shadow-xl inline-flex items-center gap-2">
+                        Learn More About Us
+                        <i class="slide-icon fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="visit" class="py-20 lg:py-32 bg-[var(--light-background-color)] relative">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-[var(--dark-text-color)] mb-4">
+                    Come Cuddle Up With Us
+                </h2>
+                <p class="font-body text-lg md:text-xl text-[var(--gray-text-color)]">
+                    Visit our cozy café in East Los Angeles. We're open daily and ready to serve you the warmth you
+                    deserve.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="space-y-6">
+                    <div
+                        class="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-6">
+                        <div
+                            class="w-14 h-14 rounded-xl bg-[var(--primary-color)] flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-location-dot text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-heading font-bold text-2xl text-[var(--dark-text-color)] mb-2">Location</h3>
+                            <p class="text-[var(--gray-text-color)] text-lg">2609 E Cesar E Chavez Ave, Los Angeles, CA
+                                90033</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-6">
+                        <div
+                            class="w-14 h-14 rounded-xl bg-[var(--accent-color)] flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-phone text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-heading font-bold text-2xl text-[var(--dark-text-color)] mb-2">Call Us</h3>
+                            <a href="tel:+13235267219"
+                                class="text-[var(--primary-color)] font-bold text-lg hover:text-[var(--primary-button-hover-bg-color)] transition-colors">+1
+                                (323) 526-7219</a>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-6">
+                        <div
+                            class="w-14 h-14 rounded-xl bg-[var(--accent2-color)] flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-clock text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-heading font-bold text-2xl text-[var(--dark-text-color)] mb-2">Hours</h3>
+                            <p class="text-[var(--gray-text-color)] text-lg">Open Daily • <span
+                                    class="font-bold text-[var(--primary-color)]">Until 2:00 PM</span></p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-6">
+                        <div
+                            class="w-14 h-14 rounded-xl bg-[var(--accent4-color)] flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-utensils text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-heading font-bold text-2xl text-[var(--dark-text-color)] mb-4">Services</h3>
+                            <div class="flex gap-4">
+                                <span
+                                    class="bg-[var(--light-background-color)] text-[var(--primary-color)] px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2">
+                                    <i class="fa-solid fa-check"></i> Dine-In
+                                </span>
+                                <span
+                                    class="bg-[var(--light-background-color)] text-[var(--primary-color)] px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2">
+                                    <i class="fa-solid fa-check"></i> Takeaway
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="h-[400px] lg:h-auto rounded-2xl overflow-hidden shadow-2xl">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.748374241629!2d-118.2045938!3d34.0504107!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2cf5b7b9b9b9b%3A0x1b1b1b1b1b1b1b1b!2s2609%20E%20Cesar%20E%20Chavez%20Ave%2C%20Los%20Angeles%2C%20CA%2090033!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="https://maps.google.com/?q=2609+E+Cesar+E+Chavez+Ave,+Los+Angeles,+CA+90033" target="_blank"
+                    class="slide-hover inline-flex items-center gap-3 bg-[var(--primary-color)] text-white text-xl font-bold px-10 py-5 rounded-lg shadow-xl hover:shadow-2xl hover:bg-[var(--primary-button-hover-bg-color)] hover:scale-105 transition-all duration-300">
+                    Get Directions
+                    <i class="slide-icon fa-solid fa-location-arrow"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section
+        class="py-20 lg:py-32 relative overflow-hidden bg-gradient-to-r from-[var(--primary-color)] via-[var(--accent2-color)] to-[var(--accent4-color)]">
+        <div class="absolute top-10 left-10 w-40 h-40 bg-white/10 rounded-full blur-2xl animate-float"></div>
+        <div class="absolute bottom-10 right-10 w-52 h-52 bg-white/10 rounded-full blur-2xl animate-float-delayed">
+        </div>
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/5 rounded-full blur-3xl">
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10 flex flex-col items-center text-center">
+
+            <div class="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-8">
+                <i class="fa-solid fa-mug-hot text-4xl text-white"></i>
+            </div>
+
+            <h2 class="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight max-w-4xl">
+                Drop by, take a sip, and let yourself be held.
+            </h2>
+
+            <p class="text-white/90 text-xl md:text-2xl max-w-2xl mb-12 leading-relaxed font-body">
+                Experience the warmth of Acurrúcame Café. Where every drink is made with love and every moment feels
+                like home.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-6 w-full sm:w-auto mb-16">
+                <a href="#menu"
+                    class="slide-hover bg-white text-[var(--primary-color)] px-10 py-5 rounded-lg font-bold text-xl shadow-lg transition-all duration-300 hover:bg-[var(--light-background-color)] hover:scale-105 hover:shadow-2xl flex items-center justify-center gap-3">
+                    Explore Menu
+                    <i class="slide-icon fa-solid fa-coffee"></i>
+                </a>
+                <a href="#visit"
+                    class="slide-hover bg-transparent border-2 border-white text-white px-10 py-5 rounded-lg font-bold text-xl transition-all duration-300 hover:bg-white hover:text-[var(--primary-color)] hover:scale-105 flex items-center justify-center gap-3">
+                    Find Us
+                    <i class="slide-icon fa-solid fa-map-marker-alt"></i>
+                </a>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center gap-4 md:gap-8 text-white/90 font-semibold">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-star text-[var(--accent3-color)]"></i>
+                    <span>4.9 Rating</span>
+                </div>
+                <div class="hidden md:block w-px h-6 bg-white/30"></div>
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-heart text-[var(--accent3-color)]"></i>
+                    <span>116+ Happy Customers</span>
+                </div>
+                <div class="hidden md:block w-px h-6 bg-white/30"></div>
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-clock text-[var(--accent3-color)]"></i>
+                    <span>Open Daily Until 2 PM</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[var(--dark-background-color)] pt-16 pb-8 text-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+
+                <div class="space-y-4">
+                    <a href="#" class="flex items-center gap-2 mb-4">
+                        <i class="fa-solid fa-mug-hot text-3xl text-[var(--primary-color)]"></i>
+                        <span class="font-heading font-bold text-2xl">Acurrúcame</span>
+                    </a>
+                    <p class="text-white/80 leading-relaxed">A family-run coffee gem in East Los Angeles, serving warm
+                        moments and unforgettable flavors.</p>
+                    <div class="flex items-center gap-2 mt-4">
+                        <i class="fa-solid fa-star text-[var(--accent3-color)]"></i>
+                        <span class="font-bold">4.9</span>
+                        <span class="text-white/60">(116 reviews)</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-heading font-bold text-lg mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#"
+                                class="text-white/80 hover:text-[var(--accent3-color)] transition-colors flex items-center gap-2"><i
+                                    class="fa-solid fa-chevron-right text-xs"></i> Home</a></li>
+                        <li><a href="#menu"
+                                class="text-white/80 hover:text-[var(--accent3-color)] transition-colors flex items-center gap-2"><i
+                                    class="fa-solid fa-chevron-right text-xs"></i> Menu</a></li>
+                        <li><a href="#about"
+                                class="text-white/80 hover:text-[var(--accent3-color)] transition-colors flex items-center gap-2"><i
+                                    class="fa-solid fa-chevron-right text-xs"></i> About Us</a></li>
+                        <li><a href="#reviews"
+                                class="text-white/80 hover:text-[var(--accent3-color)] transition-colors flex items-center gap-2"><i
+                                    class="fa-solid fa-chevron-right text-xs"></i> Reviews</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-heading font-bold text-lg mb-6">Contact Us</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3 text-white/80">
+                            <i class="fa-solid fa-map-marker-alt text-[var(--accent3-color)] mt-1"></i>
+                            <span>2609 E Cesar E Chavez Ave,<br>Los Angeles, CA 90033</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-[var(--accent3-color)]"></i>
+                            <a href="tel:+13235267219"
+                                class="text-white/80 hover:text-[var(--accent3-color)] transition-colors">+1 (323)
+                                526-7219</a>
+                        </li>
+                        <li class="flex items-center gap-3 text-white/80">
+                            <i class="fa-solid fa-clock text-[var(--accent3-color)]"></i>
+                            <span>Open Daily Until 2 PM</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-heading font-bold text-lg mb-6">Our Services</h4>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-center gap-2 text-white/80"><i
+                                class="fa-solid fa-circle-check text-[var(--accent3-color)]"></i> Dine-In</li>
+                        <li class="flex items-center gap-2 text-white/80"><i
+                                class="fa-solid fa-circle-check text-[var(--accent3-color)]"></i> Takeaway</li>
+                        <li class="flex items-center gap-2 text-white/80"><i
+                                class="fa-solid fa-coffee text-[var(--accent3-color)]"></i> Specialty Drinks</li>
+                        <li class="flex items-center gap-2 text-white/80"><i
+                                class="fa-solid fa-leaf text-[var(--accent3-color)]"></i> Oat Milk Available</li>
+                    </ul>
+                    <a href="#visit"
+                        class="inline-block bg-[var(--primary-color)] text-white text-sm font-bold px-6 py-3 rounded hover:bg-[var(--primary-button-hover-bg-color)] transition-colors">
+                        Visit Us Today
+                    </a>
+                </div>
+            </div>
+
+            <div class="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-white/60 text-center md:text-left flex items-center gap-1">
+                    © 2025 Acurrúcame Café. All rights reserved. Made with <i
+                        class="fa-solid fa-heart text-[var(--primary-color)]"></i> in East LA.
+                </p>
+                <div class="flex gap-6">
+                    <a href="#" class="text-white/60 hover:text-[var(--accent3-color)] text-xl transition-colors"><i
+                            class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="text-white/60 hover:text-[var(--accent3-color)] text-xl transition-colors"><i
+                            class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="text-white/60 hover:text-[var(--accent3-color)] text-xl transition-colors"><i
+                            class="fa-brands fa-yelp"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleButton = document.querySelector('[data-landingsite-mobile-menu-toggle]');
+            const mobileMenu = document.querySelector('[data-landingsite-mobile-menu]');
+
+            if (toggleButton && mobileMenu) {
+                toggleButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                    // Change icon based on state
+                    const icon = toggleButton.querySelector('i');
+                    if (mobileMenu.classList.contains('hidden')) {
+                        icon.classList.remove('fa-xmark');
+                        icon.classList.add('fa-bars');
+                    } else {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-xmark');
+                    }
+                });
+            }
+
+            // Close mobile menu when clicking a link
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    const icon = toggleButton.querySelector('i');
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
