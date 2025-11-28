@@ -85,6 +85,137 @@
             }
         }
 
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes rotateIn {
+            from {
+                opacity: 0;
+                transform: rotate(-10deg) scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: rotate(0) scale(1);
+            }
+        }
+
+        /* Animation Classes */
         .animate-float {
             animation: float 6s ease-in-out infinite;
         }
@@ -93,8 +224,100 @@
             animation: float 8s ease-in-out infinite 2s;
         }
 
+        .animate-fadeIn {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .animate-fadeInDown {
+            animation: fadeInDown 0.8s ease-out forwards;
+        }
+
+        .animate-fadeInLeft {
+            animation: fadeInLeft 0.8s ease-out forwards;
+        }
+
+        .animate-fadeInRight {
+            animation: fadeInRight 0.8s ease-out forwards;
+        }
+
+        .animate-scaleIn {
+            animation: scaleIn 0.6s ease-out forwards;
+        }
+
+        .animate-bounce {
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        .animate-pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .animate-slideInLeft {
+            animation: slideInLeft 0.8s ease-out forwards;
+        }
+
+        .animate-slideInRight {
+            animation: slideInRight 0.8s ease-out forwards;
+        }
+
+        .animate-rotateIn {
+            animation: rotateIn 0.8s ease-out forwards;
+        }
+
+        /* Stagger delays for multiple items */
+        .stagger-1 {
+            animation-delay: 0.1s;
+        }
+
+        .stagger-2 {
+            animation-delay: 0.2s;
+        }
+
+        .stagger-3 {
+            animation-delay: 0.3s;
+        }
+
+        .stagger-4 {
+            animation-delay: 0.4s;
+        }
+
+        .stagger-5 {
+            animation-delay: 0.5s;
+        }
+
+        .stagger-6 {
+            animation-delay: 0.6s;
+        }
+
+        /* Initial state for animated elements */
+        .animate-on-scroll {
+            opacity: 0;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+        }
+
+        /* Hover effects */
         .slide-hover:hover .slide-icon {
             transform: translateX(4px);
+        }
+
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .hover-glow:hover {
+            box-shadow: 0 0 20px rgba(215, 111, 111, 0.4);
         }
 
         /* Smooth Scroll */
@@ -107,48 +330,54 @@
 <body class="font-body text-[var(--dark-text-color)] antialiased">
 
     <header
-        class="fixed top-0 w-full z-50 h-28 bg-[var(--light-background-color)]/90 backdrop-blur-md shadow-sm transition-all duration-300">
+        class="fixed top-0 w-full z-50 h-28 bg-[var(--light-background-color)]/90 backdrop-blur-md shadow-sm transition-all duration-300 animate-fadeInDown">
         <div class="container mx-auto px-6 h-full flex justify-between items-center">
-            <a href="#" class="h-full py-2 flex items-center" data-logo>
+            <a href="#" class="h-full py-2 flex items-center animate-scaleIn" data-logo>
                 <div class="h-20 w-auto flex items-center gap-2">
-                    <i class="fa-solid fa-mug-hot text-4xl text-[var(--primary-color)]"></i>
+                    <i class="fa-solid fa-mug-hot text-4xl text-[var(--primary-color)] animate-bounce"></i>
                     <span class="font-heading font-bold text-2xl text-[var(--dark-text-color)]">Acurrúcame</span>
                 </div>
             </a>
 
             <nav class="hidden lg:flex items-center gap-8">
                 <a href="#menu"
-                    class="text-[var(--dark-text-color)] hover:text-[var(--primary-color)] font-semibold transition-colors duration-300">Menu</a>
+                    class="text-[var(--dark-text-color)] hover:text-[var(--primary-color)] font-semibold transition-all duration-300 hover:scale-110 animate-fadeInDown stagger-1">Menu</a>
                 <a href="#about"
-                    class="text-[var(--dark-text-color)] hover:text-[var(--primary-color)] font-semibold transition-colors duration-300">About
+                    class="text-[var(--dark-text-color)] hover:text-[var(--primary-color)] font-semibold transition-all duration-300 hover:scale-110 animate-fadeInDown stagger-2">About
                     Us</a>
                 <a href="#reviews"
-                    class="text-[var(--dark-text-color)] hover:text-[var(--primary-color)] font-semibold transition-colors duration-300">Reviews</a>
+                    class="text-[var(--dark-text-color)] hover:text-[var(--primary-color)] font-semibold transition-all duration-300 hover:scale-110 animate-fadeInDown stagger-3">Reviews</a>
                 <a href="#visit"
-                    class="text-[var(--dark-text-color)] hover:text-[var(--primary-color)] font-semibold transition-colors duration-300">Visit
+                    class="text-[var(--dark-text-color)] hover:text-[var(--primary-color)] font-semibold transition-all duration-300 hover:scale-110 animate-fadeInDown stagger-4">Visit
                     Us</a>
 
                 <a href="#menu"
-                    class="bg-[var(--primary-color)] text-white px-6 py-3 rounded-lg font-bold hover:bg-[var(--primary-button-hover-bg-color)] transition-all transform hover:scale-105 shadow-md">
+                    class="bg-[var(--primary-color)] text-white px-6 py-3 rounded-lg font-bold hover:bg-[var(--primary-button-hover-bg-color)] transition-all transform hover:scale-105 shadow-md hover-glow animate-fadeInDown stagger-5">
                     Explore Signature Drinks
                 </a>
             </nav>
 
-            <button class="lg:hidden text-3xl text-[var(--dark-text-color)] focus:outline-none" id="mobile-menu-toggle"
-                data-landingsite-mobile-menu-toggle>
+            <button class="lg:hidden text-3xl text-[var(--dark-text-color)] focus:outline-none animate-scaleIn"
+                id="mobile-menu-toggle" data-landingsite-mobile-menu-toggle>
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
 
-        <div class="hidden lg:hidden bg-[var(--light-background-color)] border-t border-[var(--medium-background-color)] shadow-lg"
+        <div class="hidden lg:hidden bg-[var(--light-background-color)] border-t border-[var(--medium-background-color)] shadow-lg animate-fadeInDown"
             id="mobile-menu" data-landingsite-mobile-menu>
             <div class="flex flex-col p-6 gap-4">
-                <a href="#menu" class="text-xl font-heading font-semibold text-[var(--dark-text-color)]">Menu</a>
-                <a href="#about" class="text-xl font-heading font-semibold text-[var(--dark-text-color)]">About Us</a>
-                <a href="#reviews" class="text-xl font-heading font-semibold text-[var(--dark-text-color)]">Reviews</a>
-                <a href="#visit" class="text-xl font-heading font-semibold text-[var(--dark-text-color)]">Visit Us</a>
                 <a href="#menu"
-                    class="bg-[var(--primary-color)] text-white px-6 py-3 rounded-lg font-bold text-center mt-2">
+                    class="text-xl font-heading font-semibold text-[var(--dark-text-color)] hover:text-[var(--primary-color)] transition-all duration-300 hover:translate-x-2">Menu</a>
+                <a href="#about"
+                    class="text-xl font-heading font-semibold text-[var(--dark-text-color)] hover:text-[var(--primary-color)] transition-all duration-300 hover:translate-x-2">About
+                    Us</a>
+                <a href="#reviews"
+                    class="text-xl font-heading font-semibold text-[var(--dark-text-color)] hover:text-[var(--primary-color)] transition-all duration-300 hover:translate-x-2">Reviews</a>
+                <a href="#visit"
+                    class="text-xl font-heading font-semibold text-[var(--dark-text-color)] hover:text-[var(--primary-color)] transition-all duration-300 hover:translate-x-2">Visit
+                    Us</a>
+                <a href="#menu"
+                    class="bg-[var(--primary-color)] text-white px-6 py-3 rounded-lg font-bold text-center mt-2 hover:bg-[var(--primary-button-hover-bg-color)] transition-all duration-300 hover:scale-105">
                     Explore Signature Drinks
                 </a>
             </div>
@@ -156,7 +385,7 @@
     </header>
 
     <section class="relative min-h-screen flex items-center justify-center pt-28 overflow-hidden">
-        <div class="absolute inset-0 z-0">
+        <div class="absolute inset-0 z-0 animate-fadeIn">
             <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80"
                 alt="Latte Art" class="w-full h-full object-cover">
             <div
@@ -171,35 +400,38 @@
 
         <div class="container mx-auto px-6 relative z-20 text-center flex flex-col items-center">
 
-            <h1 class="font-heading font-bold text-white text-5xl md:text-6xl lg:text-7xl mb-2 drop-shadow-lg">
+            <h1
+                class="font-heading font-bold text-white text-5xl md:text-6xl lg:text-7xl mb-2 drop-shadow-lg animate-fadeInUp">
                 Acurrúcame Café
             </h1>
             <h2
-                class="font-heading font-light italic text-[var(--accent3-color)] text-3xl md:text-4xl lg:text-5xl mb-8">
+                class="font-heading font-light italic text-[var(--accent3-color)] text-3xl md:text-4xl lg:text-5xl mb-8 animate-fadeInUp stagger-1">
                 El sabor que te abraza
             </h2>
 
-            <p class="text-white/90 text-xl md:text-2xl lg:text-3xl max-w-3xl leading-relaxed mb-10">
+            <p
+                class="text-white/90 text-xl md:text-2xl lg:text-3xl max-w-3xl leading-relaxed mb-10 animate-fadeInUp stagger-2">
                 A family-run Los Angeles coffee gem serving warm moments, Mexican-inspired lattes, and irresistible
                 house favorites.
             </p>
 
-            <div class="flex flex-col md:flex-row items-center gap-4 md:gap-8 mb-10 text-white">
-                <div class="flex items-center gap-2">
-                    <i class="fa-solid fa-star text-[var(--accent3-color)]"></i>
+            <div
+                class="flex flex-col md:flex-row items-center gap-4 md:gap-8 mb-10 text-white animate-fadeInUp stagger-3">
+                <div class="flex items-center gap-2 hover:scale-110 transition-transform duration-300">
+                    <i class="fa-solid fa-star text-[var(--accent3-color)] animate-pulse"></i>
                     <span class="font-bold text-xl">4.9</span>
                     <span class="text-[var(--accent3-color)]">(116 reviews)</span>
                 </div>
                 <div class="hidden md:block w-px h-6 bg-white/50"></div>
-                <div class="flex items-center gap-2">
-                    <i class="fa-solid fa-location-dot text-[var(--accent3-color)]"></i>
+                <div class="flex items-center gap-2 hover:scale-110 transition-transform duration-300">
+                    <i class="fa-solid fa-location-dot text-[var(--accent3-color)] animate-bounce"></i>
                     <span>East Los Angeles</span>
                 </div>
             </div>
 
-            <div class="flex flex-col sm:flex-row gap-6 w-full sm:w-auto">
+            <div class="flex flex-col sm:flex-row gap-6 w-full sm:w-auto animate-fadeInUp stagger-4">
                 <a href="#menu"
-                    class="slide-hover group bg-[var(--primary-color)] text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 hover:bg-[var(--primary-button-hover-bg-color)] hover:scale-105 hover:shadow-xl flex items-center justify-center gap-3">
+                    class="slide-hover group bg-[var(--primary-color)] text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 hover:bg-[var(--primary-button-hover-bg-color)] hover:scale-105 hover:shadow-xl flex items-center justify-center gap-3 hover-glow">
                     View Our Menu
                     <i class="slide-icon fa-solid fa-arrow-right transition-transform duration-300"></i>
                 </a>
@@ -210,8 +442,8 @@
                 </a>
             </div>
 
-            <div class="mt-8 flex items-center gap-2 text-white/80 text-sm">
-                <i class="fa-solid fa-circle-check text-[var(--accent3-color)]"></i>
+            <div class="mt-8 flex items-center gap-2 text-white/80 text-sm animate-fadeInUp stagger-5">
+                <i class="fa-solid fa-circle-check text-[var(--accent3-color)] animate-pulse"></i>
                 <span>Open Daily Until 2 PM • Dine-In & Takeaway Available</span>
             </div>
         </div>
@@ -227,11 +459,14 @@
     </section>
 
     <section id="menu" class="py-20 lg:py-32 bg-[var(--light-background-color)] relative">
-        <div class="absolute top-0 right-0 w-64 h-64 bg-[var(--accent3-color)]/30 blur-3xl rounded-full"></div>
-        <div class="absolute bottom-0 left-0 w-64 h-64 bg-[var(--primary-color)]/20 blur-3xl rounded-full"></div>
+        <div class="absolute top-0 right-0 w-64 h-64 bg-[var(--accent3-color)]/30 blur-3xl rounded-full animate-float">
+        </div>
+        <div
+            class="absolute bottom-0 left-0 w-64 h-64 bg-[var(--primary-color)]/20 blur-3xl rounded-full animate-float-delayed">
+        </div>
 
         <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16 animate-on-scroll animate-fadeInUp">
                 <h2 class="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-[var(--dark-text-color)] mb-6">
                     Our Signature Drinks
                 </h2>
@@ -244,33 +479,37 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
 
                 <div
-                    class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden hover:scale-[1.02]">
+                    class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden hover:scale-[1.02] hover-lift animate-on-scroll animate-fadeInUp stagger-1">
                     <div class="h-64 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=800&q=80"
                             alt="La Cocada"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:rotate-2">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
                     </div>
                     <div class="p-6">
-                        <h3 class="font-heading font-bold text-2xl text-[var(--dark-text-color)] mb-2">La Cocada</h3>
+                        <h3
+                            class="font-heading font-bold text-2xl text-[var(--dark-text-color)] mb-2 group-hover:text-[var(--primary-color)] transition-colors duration-300">
+                            La Cocada</h3>
                         <p class="text-[var(--gray-text-color)] leading-relaxed">Creamy, coconut-matcha magic. A
                             tropical embrace in every sip that'll transport you to paradise.</p>
                     </div>
                 </div>
 
                 <div
-                    class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden hover:scale-[1.02] relative">
+                    class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden hover:scale-[1.02] relative hover-lift animate-on-scroll animate-fadeInUp stagger-2">
                     <div
-                        class="absolute top-4 right-4 z-20 bg-[var(--primary-color)] text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                        class="absolute top-4 right-4 z-20 bg-[var(--primary-color)] text-white text-xs font-bold px-3 py-1 rounded-full shadow-md animate-pulse">
                         FAN FAVORITE</div>
                     <div class="h-64 overflow-hidden relative">
                         <img src="https://plus.unsplash.com/premium_photo-1675435644687-562e8042b9db?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Q0FGRXxlbnwwfHwwfHx8MA%3D%3D"
                             alt="Mazapán Latte"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:rotate-2">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
                     </div>
                     <div class="p-6">
-                        <h3 class="font-heading font-bold text-2xl text-[var(--dark-text-color)] mb-2">Mazapán Latte
+                        <h3
+                            class="font-heading font-bold text-2xl text-[var(--dark-text-color)] mb-2 group-hover:text-[var(--primary-color)] transition-colors duration-300">
+                            Mazapán Latte
                         </h3>
                         <p class="text-[var(--gray-text-color)] leading-relaxed">Sweet, nutty, velvety, and instantly
                             addictive. The Mexican candy latte that has everyone talking.</p>
@@ -278,15 +517,17 @@
                 </div>
 
                 <div
-                    class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden hover:scale-[1.02]">
+                    class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden hover:scale-[1.02] hover-lift animate-on-scroll animate-fadeInUp stagger-3">
                     <div class="h-64 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80"
                             alt="Acurrúcame Latte"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:rotate-2">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
                     </div>
                     <div class="p-6">
-                        <h3 class="font-heading font-bold text-2xl text-[var(--dark-text-color)] mb-2">Acurrúcame Latte
+                        <h3
+                            class="font-heading font-bold text-2xl text-[var(--dark-text-color)] mb-2 group-hover:text-[var(--primary-color)] transition-colors duration-300">
+                            Acurrúcame Latte
                         </h3>
                         <p class="text-[var(--gray-text-color)] leading-relaxed">Our signature namesake drink. Warm,
                             comforting, and made to feel like a hug in a cup.</p>
@@ -294,15 +535,17 @@
                 </div>
 
                 <div
-                    class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden hover:scale-[1.02]">
+                    class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden hover:scale-[1.02] hover-lift animate-on-scroll animate-fadeInUp stagger-4">
                     <div class="h-64 overflow-hidden relative">
                         <img src="https://plus.unsplash.com/premium_photo-1663840277963-17291c6a0086?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8U3RyYXdiZXJyeSUyME1hdGNoYXxlbnwwfHwwfHx8MA%3D%3D"
                             alt="Strawberry Matcha"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:rotate-2">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
                     </div>
                     <div class="p-6">
-                        <h3 class="font-heading font-bold text-2xl text-[var(--dark-text-color)] mb-2">Strawberry Matcha
+                        <h3
+                            class="font-heading font-bold text-2xl text-[var(--dark-text-color)] mb-2 group-hover:text-[var(--primary-color)] transition-colors duration-300">
+                            Strawberry Matcha
                         </h3>
                         <p class="text-[var(--gray-text-color)] leading-relaxed">Refreshingly vibrant and photogenic.
                             The perfect balance of sweet berries and earthy matcha.</p>
@@ -310,30 +553,34 @@
                 </div>
 
                 <div
-                    class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden hover:scale-[1.02]">
+                    class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden hover:scale-[1.02] hover-lift animate-on-scroll animate-fadeInUp stagger-5">
                     <div class="h-64 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=800&q=80"
                             alt="Iced Coffee"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:rotate-2">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
                     </div>
                     <div class="p-6">
-                        <h3 class="font-heading font-bold text-2xl text-[var(--dark-text-color)] mb-2">Iced Coffee</h3>
+                        <h3
+                            class="font-heading font-bold text-2xl text-[var(--dark-text-color)] mb-2 group-hover:text-[var(--primary-color)] transition-colors duration-300">
+                            Iced Coffee</h3>
                         <p class="text-[var(--gray-text-color)] leading-relaxed">Smooth, bold, and perfectly chilled.
                             Classic perfection for those who love coffee pure and simple.</p>
                     </div>
                 </div>
 
                 <div
-                    class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden hover:scale-[1.02]">
+                    class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden hover:scale-[1.02] hover-lift animate-on-scroll animate-fadeInUp stagger-6">
                     <div class="h-64 overflow-hidden relative">
                         <img src="https://plus.unsplash.com/premium_photo-1664375245759-48264af32e0a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8SWNlZCUyMExhdHRlJTIwKE9hdCl8ZW58MHx8MHx8fDA%3D"
                             alt="Iced Latte with Oatmilk"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:rotate-2">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
                     </div>
                     <div class="p-6">
-                        <h3 class="font-heading font-bold text-2xl text-[var(--dark-text-color)] mb-2">Iced Latte (Oat)
+                        <h3
+                            class="font-heading font-bold text-2xl text-[var(--dark-text-color)] mb-2 group-hover:text-[var(--primary-color)] transition-colors duration-300">
+                            Iced Latte (Oat)
                         </h3>
                         <p class="text-[var(--gray-text-color)] leading-relaxed">Silky smooth and dairy-free delight.
                             Rich espresso perfectly balanced with creamy oat goodness.</p>
@@ -342,9 +589,9 @@
 
             </div>
 
-            <div class="text-center">
+            <div class="text-center animate-on-scroll animate-fadeInUp">
                 <a href="#"
-                    class="slide-hover inline-flex items-center gap-3 bg-[var(--primary-color)] text-white text-xl font-bold px-10 py-5 rounded-lg shadow-xl hover:shadow-2xl hover:bg-[var(--primary-button-hover-bg-color)] hover:scale-105 transition-all duration-300">
+                    class="slide-hover inline-flex items-center gap-3 bg-[var(--primary-color)] text-white text-xl font-bold px-10 py-5 rounded-lg shadow-xl hover:shadow-2xl hover:bg-[var(--primary-button-hover-bg-color)] hover:scale-105 transition-all duration-300 hover-glow">
                     See Full Menu
                     <i class="slide-icon fa-solid fa-arrow-right"></i>
                 </a>
@@ -356,15 +603,16 @@
         <div class="container mx-auto px-6 max-w-7xl">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-                <div class="order-2 lg:order-1 relative">
-                    <div class="rounded-3xl overflow-hidden shadow-2xl h-[500px] lg:h-[600px] relative">
+                <div class="order-2 lg:order-1 relative animate-on-scroll animate-fadeInLeft">
+                    <div
+                        class="rounded-3xl overflow-hidden shadow-2xl h-[500px] lg:h-[600px] relative hover:scale-[1.02] transition-transform duration-500">
                         <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80"
                             alt="Cozy Interior" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     </div>
 
                     <div
-                        class="hidden md:flex absolute -bottom-6 -right-6 bg-[var(--primary-color)] text-white p-8 rounded-2xl shadow-2xl flex-col gap-2 max-w-xs z-10">
+                        class="hidden md:flex absolute -bottom-6 -right-6 bg-[var(--primary-color)] text-white p-8 rounded-2xl shadow-2xl flex-col gap-2 max-w-xs z-10 animate-pulse hover:scale-110 transition-transform duration-300">
                         <div class="flex items-center gap-3">
                             <i class="fa-solid fa-heart text-2xl"></i>
                             <span class="text-3xl font-bold font-heading">4.9</span>
@@ -374,9 +622,9 @@
                     </div>
                 </div>
 
-                <div class="order-1 lg:order-2 flex flex-col items-start">
+                <div class="order-1 lg:order-2 flex flex-col items-start animate-on-scroll animate-fadeInRight">
                     <div
-                        class="inline-flex items-center gap-2 bg-[var(--light-background-color)] text-[var(--primary-color)] px-4 py-1.5 rounded-full text-sm font-bold mb-6">
+                        class="inline-flex items-center gap-2 bg-[var(--light-background-color)] text-[var(--primary-color)] px-4 py-1.5 rounded-full text-sm font-bold mb-6 animate-bounce">
                         <i class="fa-solid fa-heart"></i>
                         Our Story
                     </div>
@@ -387,35 +635,37 @@
                     </h2>
 
                     <div class="space-y-6 text-[var(--gray-text-color)] text-lg leading-relaxed mb-10 font-body">
-                        <p>Acurrúcame Café is more than just a coffee shop—it's a <span
-                                class="font-bold text-[var(--primary-color)]">family-run sanctuary</span> in the heart
+                        <p class="animate-fadeInUp stagger-1">Acurrúcame Café is more than just a coffee shop—it's a
+                            <span class="font-bold text-[var(--primary-color)]">family-run sanctuary</span> in the heart
                             of East Los Angeles where warmth, flavor, and community come together.</p>
-                        <p>Founded with love and inspired by Mexican culture, we've created a space where every visitor
+                        <p class="animate-fadeInUp stagger-2">Founded with love and inspired by Mexican culture, we've
+                            created a space where every visitor
                             is treated like family. Our drinks are crafted with generous portions of flavor and heart,
                             making each sip a moment to remember.</p>
-                        <p>From our <span class="font-bold text-[var(--primary-color)]">immaculate space</span> to our
+                        <p class="animate-fadeInUp stagger-3">From our <span
+                                class="font-bold text-[var(--primary-color)]">immaculate space</span> to our
                             genuine smiles, we're a hidden gem loved by locals and discovered with joy by visitors. We
                             believe coffee is more than a beverage—it's an embrace, a conversation, a moment of comfort.
                         </p>
                     </div>
 
                     <div class="grid grid-cols-2 md:grid-cols-3 gap-6 w-full mb-10">
-                        <div>
+                        <div class="hover:scale-110 transition-transform duration-300 animate-fadeInUp stagger-1">
                             <span class="block text-4xl font-heading font-bold text-[var(--primary-color)]">$1-10</span>
                             <span class="text-sm text-[var(--gray-text-color)]">Affordable Prices</span>
                         </div>
-                        <div>
+                        <div class="hover:scale-110 transition-transform duration-300 animate-fadeInUp stagger-2">
                             <span class="block text-4xl font-heading font-bold text-[var(--primary-color)]">100%</span>
                             <span class="text-sm text-[var(--gray-text-color)]">Family-Run</span>
                         </div>
-                        <div>
+                        <div class="hover:scale-110 transition-transform duration-300 animate-fadeInUp stagger-3">
                             <span class="block text-4xl font-heading font-bold text-[var(--primary-color)]">Daily</span>
                             <span class="text-sm text-[var(--gray-text-color)]">Fresh & Local</span>
                         </div>
                     </div>
 
                     <a href="#"
-                        class="slide-hover bg-[var(--secondary-button-bg-color)] text-[var(--secondary-button-text-color)] px-8 py-4 rounded-lg font-bold text-lg shadow-md transition-all duration-300 hover:scale-105 hover:shadow-xl inline-flex items-center gap-2">
+                        class="slide-hover bg-[var(--secondary-button-bg-color)] text-[var(--secondary-button-text-color)] px-8 py-4 rounded-lg font-bold text-lg shadow-md transition-all duration-300 hover:scale-105 hover:shadow-xl inline-flex items-center gap-2 animate-fadeInUp stagger-4">
                         Learn More About Us
                         <i class="slide-icon fa-solid fa-arrow-right"></i>
                     </a>
@@ -426,7 +676,7 @@
 
     <section id="visit" class="py-20 lg:py-32 bg-[var(--light-background-color)] relative">
         <div class="container mx-auto px-6 max-w-6xl">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16 animate-on-scroll animate-fadeInUp">
                 <h2 class="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-[var(--dark-text-color)] mb-4">
                     Come Cuddle Up With Us
                 </h2>
@@ -439,9 +689,9 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <div class="space-y-6">
                     <div
-                        class="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-6">
+                        class="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg transition-all duration-300 flex items-start gap-6 hover-lift animate-on-scroll animate-fadeInLeft stagger-1">
                         <div
-                            class="w-14 h-14 rounded-xl bg-[var(--primary-color)] flex items-center justify-center flex-shrink-0">
+                            class="w-14 h-14 rounded-xl bg-[var(--primary-color)] flex items-center justify-center flex-shrink-0 animate-bounce">
                             <i class="fa-solid fa-location-dot text-white text-xl"></i>
                         </div>
                         <div>
@@ -452,9 +702,9 @@
                     </div>
 
                     <div
-                        class="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-6">
+                        class="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg transition-all duration-300 flex items-start gap-6 hover-lift animate-on-scroll animate-fadeInLeft stagger-2">
                         <div
-                            class="w-14 h-14 rounded-xl bg-[var(--accent-color)] flex items-center justify-center flex-shrink-0">
+                            class="w-14 h-14 rounded-xl bg-[var(--accent-color)] flex items-center justify-center flex-shrink-0 animate-pulse">
                             <i class="fa-solid fa-phone text-white text-xl"></i>
                         </div>
                         <div>
@@ -466,9 +716,9 @@
                     </div>
 
                     <div
-                        class="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-6">
+                        class="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg transition-all duration-300 flex items-start gap-6 hover-lift animate-on-scroll animate-fadeInLeft stagger-3">
                         <div
-                            class="w-14 h-14 rounded-xl bg-[var(--accent2-color)] flex items-center justify-center flex-shrink-0">
+                            class="w-14 h-14 rounded-xl bg-[var(--accent2-color)] flex items-center justify-center flex-shrink-0 animate-bounce">
                             <i class="fa-solid fa-clock text-white text-xl"></i>
                         </div>
                         <div>
@@ -479,20 +729,20 @@
                     </div>
 
                     <div
-                        class="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-start gap-6">
+                        class="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg transition-all duration-300 flex items-start gap-6 hover-lift animate-on-scroll animate-fadeInLeft stagger-4">
                         <div
-                            class="w-14 h-14 rounded-xl bg-[var(--accent4-color)] flex items-center justify-center flex-shrink-0">
+                            class="w-14 h-14 rounded-xl bg-[var(--accent4-color)] flex items-center justify-center flex-shrink-0 animate-pulse">
                             <i class="fa-solid fa-utensils text-white text-xl"></i>
                         </div>
                         <div>
                             <h3 class="font-heading font-bold text-2xl text-[var(--dark-text-color)] mb-4">Services</h3>
                             <div class="flex gap-4">
                                 <span
-                                    class="bg-[var(--light-background-color)] text-[var(--primary-color)] px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2">
+                                    class="bg-[var(--light-background-color)] text-[var(--primary-color)] px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2 hover:scale-110 transition-transform duration-300">
                                     <i class="fa-solid fa-check"></i> Dine-In
                                 </span>
                                 <span
-                                    class="bg-[var(--light-background-color)] text-[var(--primary-color)] px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2">
+                                    class="bg-[var(--light-background-color)] text-[var(--primary-color)] px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2 hover:scale-110 transition-transform duration-300">
                                     <i class="fa-solid fa-check"></i> Takeaway
                                 </span>
                             </div>
@@ -500,7 +750,8 @@
                     </div>
                 </div>
 
-                <div class="h-[400px] lg:h-auto rounded-2xl overflow-hidden shadow-2xl">
+                <div
+                    class="h-[400px] lg:h-auto rounded-2xl overflow-hidden shadow-2xl hover:scale-[1.02] transition-transform duration-500 animate-on-scroll animate-fadeInRight">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.748374241629!2d-118.2045938!3d34.0504107!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2cf5b7b9b9b9b%3A0x1b1b1b1b1b1b1b1b!2s2609%20E%20Cesar%20E%20Chavez%20Ave%2C%20Los%20Angeles%2C%20CA%2090033!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus"
                         width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
@@ -508,9 +759,9 @@
                 </div>
             </div>
 
-            <div class="text-center mt-12">
+            <div class="text-center mt-12 animate-on-scroll animate-fadeInUp">
                 <a href="https://maps.google.com/?q=2609+E+Cesar+E+Chavez+Ave,+Los+Angeles,+CA+90033" target="_blank"
-                    class="slide-hover inline-flex items-center gap-3 bg-[var(--primary-color)] text-white text-xl font-bold px-10 py-5 rounded-lg shadow-xl hover:shadow-2xl hover:bg-[var(--primary-button-hover-bg-color)] hover:scale-105 transition-all duration-300">
+                    class="slide-hover inline-flex items-center gap-3 bg-[var(--primary-color)] text-white text-xl font-bold px-10 py-5 rounded-lg shadow-xl hover:shadow-2xl hover:bg-[var(--primary-button-hover-bg-color)] hover:scale-105 transition-all duration-300 hover-glow">
                     Get Directions
                     <i class="slide-icon fa-solid fa-location-arrow"></i>
                 </a>
@@ -529,20 +780,23 @@
 
         <div class="container mx-auto px-6 relative z-10 flex flex-col items-center text-center">
 
-            <div class="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-8">
+            <div
+                class="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-8 animate-bounce">
                 <i class="fa-solid fa-mug-hot text-4xl text-white"></i>
             </div>
 
-            <h2 class="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight max-w-4xl">
+            <h2
+                class="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight max-w-4xl animate-fadeInUp">
                 Drop by, take a sip, and let yourself be held.
             </h2>
 
-            <p class="text-white/90 text-xl md:text-2xl max-w-2xl mb-12 leading-relaxed font-body">
+            <p
+                class="text-white/90 text-xl md:text-2xl max-w-2xl mb-12 leading-relaxed font-body animate-fadeInUp stagger-1">
                 Experience the warmth of Acurrúcame Café. Where every drink is made with love and every moment feels
                 like home.
             </p>
 
-            <div class="flex flex-col sm:flex-row gap-6 w-full sm:w-auto mb-16">
+            <div class="flex flex-col sm:flex-row gap-6 w-full sm:w-auto mb-16 animate-fadeInUp stagger-2">
                 <a href="#menu"
                     class="slide-hover bg-white text-[var(--primary-color)] px-10 py-5 rounded-lg font-bold text-xl shadow-lg transition-all duration-300 hover:bg-[var(--light-background-color)] hover:scale-105 hover:shadow-2xl flex items-center justify-center gap-3">
                     Explore Menu
@@ -555,19 +809,20 @@
                 </a>
             </div>
 
-            <div class="flex flex-col md:flex-row items-center gap-4 md:gap-8 text-white/90 font-semibold">
-                <div class="flex items-center gap-2">
-                    <i class="fa-solid fa-star text-[var(--accent3-color)]"></i>
+            <div
+                class="flex flex-col md:flex-row items-center gap-4 md:gap-8 text-white/90 font-semibold animate-fadeInUp stagger-3">
+                <div class="flex items-center gap-2 hover:scale-110 transition-transform duration-300">
+                    <i class="fa-solid fa-star text-[var(--accent3-color)] animate-pulse"></i>
                     <span>4.9 Rating</span>
                 </div>
                 <div class="hidden md:block w-px h-6 bg-white/30"></div>
-                <div class="flex items-center gap-2">
-                    <i class="fa-solid fa-heart text-[var(--accent3-color)]"></i>
+                <div class="flex items-center gap-2 hover:scale-110 transition-transform duration-300">
+                    <i class="fa-solid fa-heart text-[var(--accent3-color)] animate-bounce"></i>
                     <span>116+ Happy Customers</span>
                 </div>
                 <div class="hidden md:block w-px h-6 bg-white/30"></div>
-                <div class="flex items-center gap-2">
-                    <i class="fa-solid fa-clock text-[var(--accent3-color)]"></i>
+                <div class="flex items-center gap-2 hover:scale-110 transition-transform duration-300">
+                    <i class="fa-solid fa-clock text-[var(--accent3-color)] animate-pulse"></i>
                     <span>Open Daily Until 2 PM</span>
                 </div>
             </div>
@@ -578,42 +833,43 @@
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
 
-                <div class="space-y-4">
-                    <a href="#" class="flex items-center gap-2 mb-4">
-                        <i class="fa-solid fa-mug-hot text-3xl text-[var(--primary-color)]"></i>
+                <div class="space-y-4 animate-fadeInUp stagger-1">
+                    <a href="#" class="flex items-center gap-2 mb-4 hover:scale-110 transition-transform duration-300">
+                        <i class="fa-solid fa-mug-hot text-3xl text-[var(--primary-color)] animate-bounce"></i>
                         <span class="font-heading font-bold text-2xl">Acurrúcame</span>
                     </a>
                     <p class="text-white/80 leading-relaxed">A family-run coffee gem in East Los Angeles, serving warm
                         moments and unforgettable flavors.</p>
                     <div class="flex items-center gap-2 mt-4">
-                        <i class="fa-solid fa-star text-[var(--accent3-color)]"></i>
+                        <i class="fa-solid fa-star text-[var(--accent3-color)] animate-pulse"></i>
                         <span class="font-bold">4.9</span>
                         <span class="text-white/60">(116 reviews)</span>
                     </div>
                 </div>
 
-                <div>
+                <div class="animate-fadeInUp stagger-2">
                     <h4 class="font-heading font-bold text-lg mb-6">Quick Links</h4>
                     <ul class="space-y-3">
                         <li><a href="#"
-                                class="text-white/80 hover:text-[var(--accent3-color)] transition-colors flex items-center gap-2"><i
+                                class="text-white/80 hover:text-[var(--accent3-color)] transition-all duration-300 flex items-center gap-2 hover:translate-x-2"><i
                                     class="fa-solid fa-chevron-right text-xs"></i> Home</a></li>
                         <li><a href="#menu"
-                                class="text-white/80 hover:text-[var(--accent3-color)] transition-colors flex items-center gap-2"><i
+                                class="text-white/80 hover:text-[var(--accent3-color)] transition-all duration-300 flex items-center gap-2 hover:translate-x-2"><i
                                     class="fa-solid fa-chevron-right text-xs"></i> Menu</a></li>
                         <li><a href="#about"
-                                class="text-white/80 hover:text-[var(--accent3-color)] transition-colors flex items-center gap-2"><i
+                                class="text-white/80 hover:text-[var(--accent3-color)] transition-all duration-300 flex items-center gap-2 hover:translate-x-2"><i
                                     class="fa-solid fa-chevron-right text-xs"></i> About Us</a></li>
                         <li><a href="#reviews"
-                                class="text-white/80 hover:text-[var(--accent3-color)] transition-colors flex items-center gap-2"><i
+                                class="text-white/80 hover:text-[var(--accent3-color)] transition-all duration-300 flex items-center gap-2 hover:translate-x-2"><i
                                     class="fa-solid fa-chevron-right text-xs"></i> Reviews</a></li>
                     </ul>
                 </div>
 
-                <div>
+                <div class="animate-fadeInUp stagger-3">
                     <h4 class="font-heading font-bold text-lg mb-6">Contact Us</h4>
                     <ul class="space-y-4">
-                        <li class="flex items-start gap-3 text-white/80">
+                        <li
+                            class="flex items-start gap-3 text-white/80 hover:text-white transition-colors duration-300">
                             <i class="fa-solid fa-map-marker-alt text-[var(--accent3-color)] mt-1"></i>
                             <span>2609 E Cesar E Chavez Ave,<br>Los Angeles, CA 90033</span>
                         </li>
@@ -630,36 +886,44 @@
                     </ul>
                 </div>
 
-                <div>
+                <div class="animate-fadeInUp stagger-4">
                     <h4 class="font-heading font-bold text-lg mb-6">Our Services</h4>
                     <ul class="space-y-3 mb-6">
-                        <li class="flex items-center gap-2 text-white/80"><i
-                                class="fa-solid fa-circle-check text-[var(--accent3-color)]"></i> Dine-In</li>
-                        <li class="flex items-center gap-2 text-white/80"><i
-                                class="fa-solid fa-circle-check text-[var(--accent3-color)]"></i> Takeaway</li>
-                        <li class="flex items-center gap-2 text-white/80"><i
-                                class="fa-solid fa-coffee text-[var(--accent3-color)]"></i> Specialty Drinks</li>
-                        <li class="flex items-center gap-2 text-white/80"><i
-                                class="fa-solid fa-leaf text-[var(--accent3-color)]"></i> Oat Milk Available</li>
+                        <li
+                            class="flex items-center gap-2 text-white/80 hover:text-white transition-colors duration-300 hover:translate-x-2">
+                            <i class="fa-solid fa-circle-check text-[var(--accent3-color)]"></i> Dine-In</li>
+                        <li
+                            class="flex items-center gap-2 text-white/80 hover:text-white transition-colors duration-300 hover:translate-x-2">
+                            <i class="fa-solid fa-circle-check text-[var(--accent3-color)]"></i> Takeaway</li>
+                        <li
+                            class="flex items-center gap-2 text-white/80 hover:text-white transition-colors duration-300 hover:translate-x-2">
+                            <i class="fa-solid fa-coffee text-[var(--accent3-color)]"></i> Specialty Drinks</li>
+                        <li
+                            class="flex items-center gap-2 text-white/80 hover:text-white transition-colors duration-300 hover:translate-x-2">
+                            <i class="fa-solid fa-leaf text-[var(--accent3-color)]"></i> Oat Milk Available</li>
                     </ul>
                     <a href="#visit"
-                        class="inline-block bg-[var(--primary-color)] text-white text-sm font-bold px-6 py-3 rounded hover:bg-[var(--primary-button-hover-bg-color)] transition-colors">
+                        class="inline-block bg-[var(--primary-color)] text-white text-sm font-bold px-6 py-3 rounded hover:bg-[var(--primary-button-hover-bg-color)] transition-all duration-300 hover:scale-105">
                         Visit Us Today
                     </a>
                 </div>
             </div>
 
-            <div class="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div
+                class="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 animate-fadeInUp">
                 <p class="text-sm text-white/60 text-center md:text-left flex items-center gap-1">
                     © 2025 Acurrúcame Café. All rights reserved. Made with <i
-                        class="fa-solid fa-heart text-[var(--primary-color)]"></i> in East LA.
+                        class="fa-solid fa-heart text-[var(--primary-color)] animate-pulse"></i> in East LA.
                 </p>
                 <div class="flex gap-6">
-                    <a href="#" class="text-white/60 hover:text-[var(--accent3-color)] text-xl transition-colors"><i
+                    <a href="#"
+                        class="text-white/60 hover:text-[var(--accent3-color)] text-xl transition-all duration-300 hover:scale-125"><i
                             class="fa-brands fa-facebook"></i></a>
-                    <a href="#" class="text-white/60 hover:text-[var(--accent3-color)] text-xl transition-colors"><i
+                    <a href="#"
+                        class="text-white/60 hover:text-[var(--accent3-color)] text-xl transition-all duration-300 hover:scale-125"><i
                             class="fa-brands fa-instagram"></i></a>
-                    <a href="#" class="text-white/60 hover:text-[var(--accent3-color)] text-xl transition-colors"><i
+                    <a href="#"
+                        class="text-white/60 hover:text-[var(--accent3-color)] text-xl transition-all duration-300 hover:scale-125"><i
                             class="fa-brands fa-yelp"></i></a>
                 </div>
             </div>
@@ -696,6 +960,25 @@
                     icon.classList.remove('fa-xmark');
                     icon.classList.add('fa-bars');
                 });
+            });
+
+            // Scroll-triggered animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all elements with animate-on-scroll class
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                observer.observe(el);
             });
         });
     </script>
